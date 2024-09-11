@@ -81,7 +81,7 @@ echo powersave > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 lipc-set-prop com.lab126.powerd preventScreenSaver 1
 
 ### set time/weather as we start up
-ntpdate -s de.pool.ntp.org
+ntpdate -s ntp.ntsc.ac.cn
 update_weather
 clear_screen
 
@@ -126,7 +126,7 @@ while true; do
         if [ `lipc-get-prop com.lab126.wifid cmState` = "CONNECTED" ]; then
             ### Finally, set time
             echo "`date '+%Y-%m-%d_%H:%M:%S'`: Setting time..." >> $LOG
-            ntpdate -s de.pool.ntp.org
+            ntpdate -s ntp.ntsc.ac.cn
             RC=$?
             echo "`date '+%Y-%m-%d_%H:%M:%S'`: Time set. ($RC)" >> $LOG
             update_weather
