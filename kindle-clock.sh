@@ -23,7 +23,7 @@ wait_for_wifi() {
 
 update_weather() {
     echo "`date '+%Y-%m-%d_%H:%M:%S'`: update_weather" >> $LOG
-    WEATHER=$(curl -s -f -m 5 http://zh-cn.wttr.in\?format\="%C,+%t" )
+    WEATHER=$(curl -s -f -m 5 https://zh-cn.wttr.in/$CITY?format="%C,+%t" )
     RC=$?
     echo "`date '+%Y-%m-%d_%H:%M:%S'`: Got weather data. ($WEATHER, RC=$RC)" >> $LOG
     if [ ! -z "$WEATHER" ]; then
